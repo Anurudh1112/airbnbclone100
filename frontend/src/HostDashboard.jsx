@@ -10,7 +10,7 @@ export default function HostDashboard() {
 
   const fetchHostListings = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/listings');
+      const response = await axios.get('https://airbnbclone100.onrender.com/api/listings');
       const savedUser = localStorage.getItem('user');
       if (!savedUser) return;
       const user = JSON.parse(savedUser);
@@ -46,7 +46,7 @@ export default function HostDashboard() {
     dataStream.append('image', selectedFile); 
 
     try {
-      await axios.post('http://localhost:5000/api/listings', dataStream, {
+      await axios.post('https://airbnbclone100.onrender.com/api/listings', dataStream, {
         headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'multipart/form-data' }
       });
       setStatusMsg({ text: '🎉 Listing successfully published with coordinates!', isError: false });

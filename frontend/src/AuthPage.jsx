@@ -16,7 +16,7 @@ export default function AuthPage({ onLoginSuccess }) {
 
     const endpoint = isLogin ? '/api/auth/login' : '/api/auth/register';
     try {
-      const res = await axios.post(`http://localhost:5000${endpoint}`, isLogin 
+      const res = await axios.post(`https://airbnbclone100.onrender.com${endpoint}`, isLogin 
         ? { email: formData.email, password: formData.password }
         : formData
       );

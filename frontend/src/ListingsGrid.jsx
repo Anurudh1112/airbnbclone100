@@ -9,7 +9,7 @@ export default function ListingsGrid({ onSelectListing }) {
   useEffect(() => {
     const fetchListings = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/listings');
+        const response = await axios.get('https://airbnbclone100.onrender.com/api/listings');
         if (response.data && response.data.length > 0) {
           setListings(response.data);
         } else {

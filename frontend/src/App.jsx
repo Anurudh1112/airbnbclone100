@@ -15,7 +15,7 @@ export default function App() {
   // Fetch real property listings directly from your live server database endpoints
   const fetchGlobalListings = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/listings');
+      const response = await axios.get('https://airbnbclone100.onrender.com/api/listings');
       setAllListings(response.data || []);
     } catch (error) {
       console.error('Error fetching data logs from server cluster:', error);

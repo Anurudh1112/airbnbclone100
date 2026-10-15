@@ -15,7 +15,7 @@ export default function ListingDetail({ listing, onBack }) {
   // Fetch reviews and dynamic aggregation stats from the backend
   const fetchReviews = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/reviews/${listing._id}`);
+      const response = await axios.get(`https://airbnbclone100.onrender.com/api/reviews/${listing._id}`);
       setReviews(response.data.reviews || []);
       setReviewStats({
         averageRating: response.data.averageRating || 5.0,
@@ -46,7 +46,7 @@ export default function ListingDetail({ listing, onBack }) {
     if (nights === 0) return setBookingMsg({ text: '❌ Invalid check-out date range selected.', isError: true });
 
     try {
-      await axios.post('http://localhost:5000/api/bookings', {
+      await axios.post('https://airbnbclone100.onrender.com/api/bookings', {
         listingId: listing._id, 
         startDate: dates.startDate, 
         endDate: dates.endDate, 
@@ -65,7 +65,7 @@ export default function ListingDetail({ listing, onBack }) {
     if (!token) return setReviewMsg('❌ You must log in to submit a review!');
 
     try {
-      await axios.post('http://localhost:5000/api/reviews', {
+      await axios.post('https://airbnbclone100.onrender.com/api/reviews', {
         listingId: listing._id, 
         rating: Number(newRating), 
         comment: newComment
